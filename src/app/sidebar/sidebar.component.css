@@ -1,0 +1,45 @@
+.sidenavbar {
+    position: fixed;
+    height: 100%;
+    width: 250px;
+    background-color: rgb(68, 0, 255);
+    overflow-y: hidden;
+}
+
+.sidenavbar h2 {
+    text-align: center;
+    padding: 30px;
+    text-transform: uppercase;
+    color: azure;
+    font-weight: bold;
+    font-size: 20px;
+    border-bottom: 1px solid #fff;
+}
+
+.sidenavbar ul {
+    margin-top: 15px;
+    height: auto;
+    width: 100%;
+    padding: 0;
+}
+
+.sidenavbar ul li a {
+    height: 55px;
+    width: 100%;
+    color: wheat;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.sidenavbar ul li a:hover {
+    background: whitesmoke;
+    border-radius: 25px;
+    color: black;
+}

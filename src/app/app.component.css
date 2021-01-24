@@ -1,0 +1,9 @@
+.container {
+    display: flex;
+    position: relative;
+}
+
+.main-container {
+    margin-left: 250px;
+    overflow-x: hidden;
+}
