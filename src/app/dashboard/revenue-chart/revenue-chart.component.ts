@@ -17,14 +17,15 @@ export class RevenueChartComponent implements OnInit {
   yAxis: any = [];
   result_data: any = [];
   isLoading: boolean = true;
-  // sum:Number=0
 
   ngOnInit(): void {
 
+    //get the data from service
     this.dashboardService.fetchData().subscribe(response => {
       this.data = response;
       this.isLoading = false;
-      console.log(this.data)
+
+      // storing the seperate data into  arrays
       this.data.forEach((item: any) => {
         if (item.Crop !== "All Agriculture" && item.Crop !== "") {
           let sum: Number = 0;
@@ -40,13 +41,14 @@ export class RevenueChartComponent implements OnInit {
 
       })
 
+      //chart configuration
       this.chart = new Chart('canvas2', {
         type: "line",
         data: {
           labels: this.yAxis,
           datasets: [
             {
-              label: "first data",
+              label: "status",
               data: this.result_data,
               borderColor: "rgba(0, 0, 0, 0.699)",
               backgroundColor: " rgba(255, 0, 106, 0.5)"
@@ -67,11 +69,7 @@ export class RevenueChartComponent implements OnInit {
 
     })
 
-
-
   }
-
-
 
 
 }

@@ -11,6 +11,7 @@ export class MainchartComponent implements OnInit {
 
   constructor(private dashboardService: DashBoardService) { }
 
+  //initializing..
   charts: object = [];
   data: any = [];
   yAxis: any = [];
@@ -20,10 +21,11 @@ export class MainchartComponent implements OnInit {
 
   ngOnInit(): void {
 
+    //get the data from service
     this.dashboardService.fetchData().subscribe(response => {
       this.data = response;
 
-      
+      // storing the seperate data into  arrays
       this.data.forEach((item: any) => {
         if (item.Crop !== "" && item.Crop !== "All Agriculture") {
           this.result_data.push(item["2011-12"])
@@ -31,16 +33,18 @@ export class MainchartComponent implements OnInit {
         }
       })
 
+      //chart configuration
       this.charts = new Chart('canvas1', {
         type: "bar",
         data: {
           labels: this.yAxis,
           datasets: [
             {
-              label: "first data",
+              label: "status",
               data: this.result_data,
               backgroundColor: "wheat",
               borderColor: "black"
+
             }
           ]
         },
@@ -61,7 +65,5 @@ export class MainchartComponent implements OnInit {
 
 
   }
-
-
 
 }

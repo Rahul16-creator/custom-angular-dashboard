@@ -8,13 +8,15 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PagenotFoundComponent implements OnInit {
 
-  constructor(private router:ActivatedRoute) { }
+  constructor(private router: ActivatedRoute) { }
 
-  error:any;
+  error: any;
   ngOnInit(): void {
-    this.router.data.subscribe(response=>{
-      this.error=response
+
+    this.router.data.subscribe(response => {
+      this.error = response
     })
+
   }
 
 }

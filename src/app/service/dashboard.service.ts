@@ -4,11 +4,14 @@ import { Injectable } from "@angular/core";
 @Injectable({
     providedIn:"root"
 })
+
 export class DashBoardService{
+
     constructor(private httpClient : HttpClient) {}
     API = "https://custom-angular-nest-dashboard.herokuapp.com/";
 
+    //fetching the data from backend
     fetchData() {
-        return this.httpClient.get(this.API)
+        return this.httpClient.get(this.API);
     }
 }

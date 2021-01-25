@@ -18,11 +18,12 @@ export class YearschartComponent implements OnInit {
 
   ngOnInit(): void {
 
+    //get the data from service
     this.dashboardService.fetchData().subscribe(response => {
       this.data = response;
       this.isLoading = false;
 
-
+      // storing the seperate data into  arrays
       this.data.forEach((item: any) => {
         if (item.Crop === "All Agriculture") {
           Object.entries(item).forEach((t: any, i) => {
@@ -35,13 +36,14 @@ export class YearschartComponent implements OnInit {
 
       })
 
+      //chart configuration
       this.chart = new Chart('canvas3', {
         type: "bar",
         data: {
           labels: this.yAxis,
           datasets: [
             {
-              label: "first data",
+              label: "status",
               data: this.result_data,
               backgroundColor: "grey",
               borderColor: "black"
@@ -61,12 +63,7 @@ export class YearschartComponent implements OnInit {
       })
 
     })
-
-
-
   }
-
-
 
 
 }
